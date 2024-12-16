@@ -23,11 +23,15 @@
     "mongodb": "^6.10.0",
     "mongoose": "^8.8.2",
     "nodemon": "^3.1.7",
+    "vercel": "^39.2.2",
     "winston": "^3.17.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.25.9",
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }

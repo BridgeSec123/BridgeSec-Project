@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/bridgesec-fe/bridgesec-web/package.json",
+      "use": "@vercel/react"  
+    },
+    {
+      "src": "backend/bridgesec-be/server.js",
+      "use": "@vercel/node"    
+    }
+  ],
+  "routes": [
+    {
+      "src": "/backend/bridge-be/(.*)",
+      "dest": "/backend/bridge-be/server.js" 
+    },
+    {
+      "src": "/frontend/bridgesec-fe/bridgesec-web/(.*)",
+      "dest": "/frontend/bridgesec-fe/bridgesec-web/build/$1"
+    }
+  ]
+}
