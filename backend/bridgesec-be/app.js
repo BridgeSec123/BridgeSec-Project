@@ -23,6 +23,9 @@ app.use(bodyParser.json());
 // Routes
 app.use('/users', userRoutes);
 app.use('/dashboard', dashboardRoutes);
+app.get("/", (req,res)=>{
+  res.send("code working")
+})
 
 // Error Handling
 app.use((err, req, res, next) => {
