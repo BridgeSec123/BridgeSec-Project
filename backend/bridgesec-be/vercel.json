@@ -15,15 +15,11 @@
   ],
   "routes": [
     {
-      "src": "/dashboard/(.*)",
+      "src": "/backend/bridgesec-be/routers/(.*)",
       "dest": "/backend/bridgesec-be/server.js"
     },
     {
-      "src": "/(.*)",
-      "dest": "/backend/bridgesec-be/server.js"
-    },
-    {
-      "src": "/./frontend/bridgesec-fe/bridgesec-web/(.*)",
+      "src": "./frontend/bridgesec-fe/bridgesec-web/(.*)",
       "dest": "./frontend/bridgesec-fe/bridgesec-web/build/$1"
     }
   ]
