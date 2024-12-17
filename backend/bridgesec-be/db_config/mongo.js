@@ -13,10 +13,15 @@ const uri= `${MONGODB_URI}${NAME}+?retryWrites=true&w=majority`;
 console.log("uri------------------- :: "+uri);
 const connectDB = async () => {
     try {
-        await mongoose.connect(uri, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
+        //const secret = await waitForSecret(`mongodb/${uri}/mongodbconnectionstring`);
+        const options = {
+            useNewUrlParser: true, // Avoid deprecation warning
+            useUnifiedTopology: true, // Avoid deprecation warning
+            autoIndex: true, // We want indexes to be build
+            serverSelectionTimeoutMS: 5000, // Keep trying to send operations for 5 seconds
+            socketTimeoutMS: 300000, // Close sockets after 5 minutes of inactivity
+        };
+        await mongoose.connect(uri, options);
         //initialize collection
         await initializeEntityCollection();
         await initializeEntityTypeCollection();
