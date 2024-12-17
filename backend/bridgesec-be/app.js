@@ -12,7 +12,7 @@ const app = express();
 app.use(cors({
   //origin: 'http://localhost:3000', // Replace with the React app’s URL
   origin: 'https://bridge-sec-project-frontend.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+  methods: ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'], // Allowed HTTP methods
   //allowedHeaders: '*',
   credentials: true // Enable to allow cookies and authorization headers
 }));
