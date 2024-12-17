@@ -6,7 +6,7 @@ const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 // Create an Axios instance
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_FIREBASE_API_BASE_URL, // Set your API's base URL (update as needed)
-  timeout: 10000, // Set a timeout for requests (optional)
+  timeout: 30000, // Set a timeout for requests (optional)
 });
 
 // Add a request interceptor to set the timezone header globally
