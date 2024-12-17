@@ -48,5 +48,6 @@ Thumbs.db
 *.mov
 *.wmv
 
-#vercel.json add
+vercel.json
 
+#.vercel
