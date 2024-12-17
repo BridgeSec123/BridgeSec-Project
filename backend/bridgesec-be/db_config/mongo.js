@@ -6,10 +6,11 @@ const { initializeEntityTypeCollection } = require('../models/EntityType');
 const HOST = process.env.DB_HOST;
 const PORT = process.env.DB_PORT;
 const NAME = process.env.DB_NAME;
+const MONGODB_URI = process.env.MONGODB_URI;
 //db uri
 //const uri = 'mongodb://'+ HOST +':'+PORT+'/'+NAME;
-const uri=process.env.DB_cluster_uri;
-
+const uri= `${MONGODB_URI}${NAME}`;
+console.log("uri------------------- :: "+uri);
 const connectDB = async () => {
     try {
         await mongoose.connect(uri, {
