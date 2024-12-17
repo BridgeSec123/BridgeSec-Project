@@ -1,26 +1,15 @@
 {
   "version": 2,
-  "builds": [
+  "builds": [    
     {
-      "src": "./frontend/bridgesec-fe/bridgesec-web/package.json",
-      "use": "@vercel/react",
-      "config": {
-        "distDir": "./frontend/bridgesec-fe/bridgesec-web/build"
-      }
-    },
-    {
-      "src": "backend/bridgesec-be/server.js",
+      "src": "./server.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/backend/bridgesec-be/routers/(.*)",
-      "dest": "/backend/bridgesec-be/server.js"
-    },
-    {
-      "src": "./frontend/bridgesec-fe/bridgesec-web/(.*)",
-      "dest": "./frontend/bridgesec-fe/bridgesec-web/build/$1"
+      "src": "/(.*)",
+      "dest": "/"
     }
   ]
 }
