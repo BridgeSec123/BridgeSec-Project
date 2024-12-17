@@ -7,7 +7,8 @@ const HOST = process.env.DB_HOST;
 const PORT = process.env.DB_PORT;
 const NAME = process.env.DB_NAME;
 //db uri
-const uri = 'mongodb://'+ HOST +':'+PORT+'/'+NAME;
+//const uri = 'mongodb://'+ HOST +':'+PORT+'/'+NAME;
+const uri=process.env.DB_cluster_uri;
 
 const connectDB = async () => {
     try {
