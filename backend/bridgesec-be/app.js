@@ -9,13 +9,22 @@ const { connectDB } = require('./db_config/mongo');
 
 const app = express(); 
 
+// app.use(cors({
+//   //origin: 'http://localhost:3000', // Replace with the React app’s URL
+//   origin: '*',
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+//   //allowedHeaders: '*',
+//   // credentials: true // Enable to allow cookies and authorization headers
+// }));
 app.use(cors({
-  //origin: 'http://localhost:3000', // Replace with the React app’s URL
-  origin: 'https://bridge-sec-project-frontend.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'], // Allowed HTTP methods
-  //allowedHeaders: '*',
-  credentials: true // Enable to allow cookies and authorization headers
+  origin: '*', // Your React app URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With','Timezone'], // Headers
+  credentials: true // Allow cookies and headers
 }));
+
+// To handle preflight OPTIONS requests
+app.options('*', cors());
 
 // Middleware
 app.use(bodyParser.json());

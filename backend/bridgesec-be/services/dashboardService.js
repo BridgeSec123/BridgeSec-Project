@@ -8,22 +8,6 @@ const formatDate = (date) => {
 };
 
 //helper function to create date
-// const getStartOfDay = (createDate) => {
-//     console.log("Received createDate:", createDate);   
-//         const parsedDate = new Date(format(createDate, "yyyy-MM-dd"));
-//         console.log("parsedDate :: "+parsedDate);
-//         const startOfDay = formatDate(parsedDate);
-//         console.log("startdate after format:", startOfDay);
-//         parsedDate.setUTCHours(23, 59, 59, 999); 
-//         const endOfDay = formatDate(parsedDate);;  
-//         console.log("enddate after format:", endOfDay);    
-//         return { 
-//         startOfDay, 
-//         endOfDay 
-//         };
-    
-// };
-//helper function to create date
  const getStartOfDay = (createDate) => {    
      const startOfDay = new Date(format(createDate, "yyyy-MM-dd")); 
      startOfDay.setUTCHours(0, 0, 0, 0);     
