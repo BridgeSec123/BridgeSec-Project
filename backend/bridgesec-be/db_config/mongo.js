@@ -9,11 +9,10 @@ const NAME = process.env.DB_NAME;
 const MONGODB_URI = process.env.MONGODB_URI;
 //db uri
 //const uri = 'mongodb://'+ HOST +':'+PORT+'/'+NAME;
-const uri= `${MONGODB_URI}${NAME}+?retryWrites=true&w=majority`;
+const uri= MONGODB_URI +'/'+ NAME +'?retryWrites=true&w=majority';
 console.log("uri------------------- :: "+uri);
 const connectDB = async () => {
-    try {
-        //const secret = await waitForSecret(`mongodb/${uri}/mongodbconnectionstring`);
+    try {        
         const options = {
             useNewUrlParser: true, // Avoid deprecation warning
             useUnifiedTopology: true, // Avoid deprecation warning
