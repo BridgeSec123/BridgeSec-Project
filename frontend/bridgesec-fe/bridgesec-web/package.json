@@ -5,7 +5,7 @@
   "type": "module",
   "proxy": "https://bridge-sec-project-backend.vercel.app",
   "scripts": {
-    "start": "vite --host https://bridge-sec-project-frontend.vercel.app",
+    "start": "vite --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview",
     "prettier": "npx prettier src --check",
