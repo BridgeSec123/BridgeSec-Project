@@ -16,14 +16,31 @@ const app = express();
 //   //allowedHeaders: '*',
 //   // credentials: true // Enable to allow cookies and authorization headers
 // }));
+// app.use(cors({
+//   origin: '*', // Your React app URL
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
+//   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With','Timezone'], // Headers
+//   //credentials: true // Allow cookies and headers
+// }));
+
+// app.options('*', cors());
+
+
+// CORS Configuration
 app.use(cors({
-  origin: '*', // Your React app URL
+  origin: 'https://bridge-sec-project-frontend.vercel.app', // Your frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With','Timezone'], // Headers
-  //credentials: true // Allow cookies and headers
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Timezone'], // Specify allowed headers
+  credentials: true // Allow cookies and authorization headers
 }));
 
-app.options('*', cors());
+// Handle preflight requests
+app.options('*', (req, res) => {
+  res.header('Access-Control-Allow-Origin', 'https://bridge-sec-project-frontend.vercel.app');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Timezone');
+  res.sendStatus(204); // No Content
+});
 
 
 // Middleware
