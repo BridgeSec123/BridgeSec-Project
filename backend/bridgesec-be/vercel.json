@@ -13,7 +13,7 @@
           },
           {
             "key": "Access-Control-Allow-Origin",
-            "value": "https://bridge-sec-project-frontend.vercel.app" 
+            "value": "https://bridge-sec-project-frontend.vercel.app"
           },
           {
             "key": "Access-Control-Allow-Methods",
@@ -27,3 +27,4 @@
       }
     ]
   }
+  

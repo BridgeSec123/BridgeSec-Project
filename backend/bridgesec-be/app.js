@@ -22,39 +22,26 @@ const app = express();
 //   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With','Timezone'], // Headers
 //   //credentials: true // Allow cookies and headers
 // }));
-
-// app.options('*', cors());
-
-
-// CORS Configuration
 const corsOptions = {
   origin: 'https://bridge-sec-project-frontend.vercel.app', // Your frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Timezone','application/json', 'text/plain', '*/*'], // Allowed headers
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Timezone', 'application/json', 'text/plain', '*/*'], // Allowed headers
   credentials: true // Allow cookies and authorization headers
 };
 
+// Apply CORS middleware
 app.use(cors(corsOptions));
 
 // Middleware to handle preflight requests
-//app.options('*', cors(corsOptions));
-app.options('*', (req, res) => {
-  console.log("inside options-------------------------------------------- :: ");
-  console.log(req.method);
-
-  res.header('Access-Control-Allow-Origin', 'https://bridge-sec-project-frontend.vercel.app');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Timezone','application/json','*');
-  res.sendStatus(200);
-});
+app.options('*', cors(corsOptions));
 
 
 // Middleware
 app.use(bodyParser.json());
 
 // Routes
-app.use('/users', userRoutes);
-app.use('/dashboard', dashboardRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/dashboard', dashboardRoutes);
 app.get("/", (req,res)=>{
   res.send("code working")
 })
