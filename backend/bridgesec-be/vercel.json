@@ -2,9 +2,9 @@
     "version": 2,
     "routes": [
       {
-        "src": "/(.*)", 
+        "src": "/(.*)",
         "headers": {
-          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Origin": "https://bridge-sec-project-frontend.vercel.app",
           "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
           "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With, Timezone, application/json"
         }
