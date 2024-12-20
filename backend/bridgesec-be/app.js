@@ -17,7 +17,7 @@ const app = express();
 //   // credentials: true // Enable to allow cookies and authorization headers
 // }));
 app.use(cors({
-  origin: 'https://bridge-sec-project-frontend.vercel.app', // Your React app URL
+  origin: '*', // Your React app URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With','Timezone','application/json'], // Headers
   credentials: true // Allow cookies and headers
