@@ -15,7 +15,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://bridge-sec-project-frontend.vercel.app',
+        target: '*',
         changeOrigin: true,
         secure: false
       }
