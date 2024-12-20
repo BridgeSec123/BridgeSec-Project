@@ -19,7 +19,7 @@ const app = express();
 app.use(cors({
   origin: '*', // Your React app URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'], // Headers
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With','Timezone'], // Headers
   credentials: true // Allow cookies and headers
 }));
 
