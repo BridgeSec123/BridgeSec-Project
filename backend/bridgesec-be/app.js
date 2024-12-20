@@ -28,7 +28,7 @@ app.use(cors({
   origin: 'https://bridge-sec-project-frontend.vercel.app', // Your frontend's URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Timezone', 'application/json'],
-  credentials: true
+  //credentials: true
 }));
 
 // Handle preflight OPTIONS request manually (this ensures proper response headers)
