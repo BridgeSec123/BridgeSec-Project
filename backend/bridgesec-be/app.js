@@ -40,8 +40,8 @@ app.options('*', cors(corsOptions));
 app.use(bodyParser.json());
 
 // Routes
-app.use('/api/users', userRoutes);
-app.use('/api/dashboard', dashboardRoutes);
+app.use('/users', userRoutes);
+app.use('/dashboard', dashboardRoutes);
 app.get("/", (req,res)=>{
   res.send("code working")
 })
