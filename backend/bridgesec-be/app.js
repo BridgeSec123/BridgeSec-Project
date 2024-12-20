@@ -30,21 +30,14 @@ const app = express();
 const corsOptions = {
   origin: 'https://bridge-sec-project-frontend.vercel.app', // Your frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Timezone'], // Allowed headers
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Timezone','application/json', 'text/plain', '*/*'], // Allowed headers
   credentials: true // Allow cookies and authorization headers
 };
 
 app.use(cors(corsOptions));
 
 // Middleware to handle preflight requests
-//app.options('*', cors(corsOptions));
-app.use((req, res, next) => {
-  if (req.method === 'OPTIONS') {
-    res.status(200).end(); // Respond with 200 for preflight requests
-  } else {
-    next();
-  }
-});
+app.options('*', cors(corsOptions));
 
 // Middleware
 app.use(bodyParser.json());
