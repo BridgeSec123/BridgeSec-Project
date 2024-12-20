@@ -23,10 +23,8 @@ const app = express();
 //   //credentials: true // Allow cookies and headers
 // }));
 const corsOptions = {
-  origin: 'https://bridge-sec-project-frontend.vercel.app', // Your frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Timezone', 'application/json', 'text/plain', '*/*'], // Allowed headers
-  credentials: true // Allow cookies and authorization headers
+  origin: '*'
+  
 };
 
 // Apply CORS middleware
