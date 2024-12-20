@@ -17,9 +17,9 @@ const app = express();
 //   // credentials: true // Enable to allow cookies and authorization headers
 // }));
 app.use(cors({
-  origin: '*', // Your React app URL
+  origin: 'https://bridge-sec-project-frontend.vercel.app', // Your React app URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With','Timezone'], // Headers
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With','Timezone','application/json'], // Headers
   credentials: true // Allow cookies and headers
 }));
 
@@ -35,6 +35,10 @@ app.use('/dashboard', dashboardRoutes);
 app.get("/", (req,res)=>{
   res.send("code working")
 })
+
+app.get('/api/v1/sessions/me', (req, res) => {
+  res.json({ message: 'Success' });
+});
 
 // Error Handling
 app.use((err, req, res, next) => {
