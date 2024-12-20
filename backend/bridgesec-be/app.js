@@ -37,7 +37,17 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Middleware to handle preflight requests
-app.options('*', cors(corsOptions));
+//app.options('*', cors(corsOptions));
+app.options('*', (req, res) => {
+  console.log("inside options-------------------------------------------- :: ");
+  console.log(req.method);
+
+  res.header('Access-Control-Allow-Origin', 'https://bridge-sec-project-frontend.vercel.app');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Timezone','application/json','*');
+  res.sendStatus(200);
+});
+
 
 // Middleware
 app.use(bodyParser.json());
