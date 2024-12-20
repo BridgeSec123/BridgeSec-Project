@@ -26,7 +26,7 @@ const app = express();
 // CORS Configuration
 app.use(cors({
   origin: 'https://bridge-sec-project-frontend.vercel.app', // Your frontend's URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Timezone', 'application/json'],
   //credentials: true
 }));
@@ -34,7 +34,7 @@ app.use(cors({
 // Handle preflight OPTIONS request manually (this ensures proper response headers)
 app.options('*', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://bridge-sec-project-frontend.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Timezone, application/json');
   res.sendStatus(200); // Respond with 200 OK
 });
