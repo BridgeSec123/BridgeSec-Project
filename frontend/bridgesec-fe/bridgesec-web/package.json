@@ -3,7 +3,6 @@
   "private": true,
   "version": "1.0.6",
   "type": "module",
-  "proxy": "0.0.0.0",
   "scripts": {
     "start": "vite --host 0.0.0.0",
     "build": "vite build",
