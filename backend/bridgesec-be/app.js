@@ -37,8 +37,14 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Middleware to handle preflight requests
-app.options('*', cors(corsOptions));
-
+//app.options('*', cors(corsOptions));
+app.use((req, res, next) => {
+  if (req.method === 'OPTIONS') {
+    res.status(200).end(); // Respond with 200 for preflight requests
+  } else {
+    next();
+  }
+});
 
 // Middleware
 app.use(bodyParser.json());
