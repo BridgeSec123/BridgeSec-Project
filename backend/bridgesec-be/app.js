@@ -19,7 +19,7 @@ const app = express();
 app.use(cors({
   origin: '*', // Your React app URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With','Timezone'], // Headers
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With','Timezone','application/json'], // Headers
   credentials: true // Allow cookies and headers
 }));
 
@@ -27,7 +27,7 @@ app.use(cors({
 app.options('*', (req, res) => {
   res.header('Access-Control-Allow-Origin', 'https://bridge-sec-project-frontend.vercel.app');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Timezone');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Timezone','application/json');
   res.sendStatus(204); // No Content
 });
 
