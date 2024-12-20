@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.6",
   "type": "module",
-  "proxy": "0.0.0.0",
+  "proxy": "https://bridge-sec-project-backend.vercel.app",
   "scripts": {
     "start": "vite --host 0.0.0.0",
     "build": "vite build",
