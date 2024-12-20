@@ -27,20 +27,17 @@ const app = express();
 
 
 // CORS Configuration
-app.use(cors({
+const corsOptions = {
   origin: 'https://bridge-sec-project-frontend.vercel.app', // Your frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Timezone'], // Specify allowed headers
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Timezone'], // Allowed headers
   credentials: true // Allow cookies and authorization headers
-}));
+};
 
-// Handle preflight requests
-app.options('*', (req, res) => {
-  res.header('Access-Control-Allow-Origin', 'https://bridge-sec-project-frontend.vercel.app');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Timezone');
-  res.sendStatus(204); // No Content
-});
+app.use(cors(corsOptions));
+
+// Middleware to handle preflight requests
+app.options('*', cors(corsOptions));
 
 
 // Middleware
