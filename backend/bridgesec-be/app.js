@@ -36,7 +36,6 @@ app.get("/", (req,res)=>{
   res.send("code working")
 })
 
-
 // Error Handling
 app.use((err, req, res, next) => {
   logger.error(err.stack);
