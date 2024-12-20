@@ -11,9 +11,9 @@ const app = express();
 
 // CORS Configuration
 app.use(cors({
-  origin: 'https://bridge-sec-project-frontend.vercel.app', // Your frontend's URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Timezone'], // Specify allowed headers
+  origin: 'https://bridge-sec-project-frontend.vercel.app/', // Your frontend's URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Timezone','application/json', "*"], // Specify allowed headers
   credentials: true // Allow credentials (cookies, authorization headers)
 }));
 
