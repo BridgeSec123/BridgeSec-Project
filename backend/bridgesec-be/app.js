@@ -23,8 +23,13 @@ app.use(cors({
   credentials: true // Allow cookies and headers
 }));
 
-// To handle preflight OPTIONS requests
-app.options('*', cors());
+// Preflight OPTIONS handling
+app.options('*', (req, res) => {
+  res.header('Access-Control-Allow-Origin', 'https://bridge-sec-project-frontend.vercel.app');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Timezone');
+  res.sendStatus(204); // No Content
+});
 
 // Middleware
 app.use(bodyParser.json());
