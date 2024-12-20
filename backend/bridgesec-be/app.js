@@ -24,7 +24,7 @@ const app = express();
 // }));
 const corsOptions = {
   origin: '*', // Your frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Timezone', 'application/json', 'text/plain', '*/*'], // Allowed headers
   //credentials: true // Allow cookies and authorization headers
 };
