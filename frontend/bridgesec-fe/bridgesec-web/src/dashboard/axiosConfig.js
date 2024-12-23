@@ -12,7 +12,7 @@ const axiosInstance = axios.create({
 // Add a request interceptor to set the timezone header globally
 axiosInstance.interceptors.request.use((config) => {
   config.headers['Timezone'] = timezone;
-  config.headers['Content-Type'] = '*'; // Add the timezone header
+  //config.headers['Content-Type'] = '*'; // Add the timezone header
   const oktaTokenStorage = localStorage.getItem('okta-token-storage');
   let token=JSON.parse(oktaTokenStorage);
   //console.log("claims :: ", token.claims?.aud);

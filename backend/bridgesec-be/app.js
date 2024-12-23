@@ -16,24 +16,14 @@ const app = express();
 //   //allowedHeaders: '*',
 //   // credentials: true // Enable to allow cookies and authorization headers
 // }));
-// app.use(cors({
-//   origin: '*', // Your React app URL
-//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
-//   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With','Timezone'], // Headers
-//   //credentials: true // Allow cookies and headers
-// }));
-const corsOptions = {
-  origin: '*', // Your frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Timezone', 'application/json', 'text/plain', '*/*'], // Allowed headers
-  //credentials: true // Allow cookies and authorization headers
-};
+app.use(cors({
+  origin: '*', // Your React app URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With','Timezone'], // Headers
+  //credentials: true // Allow cookies and headers
+}));
 
-// Apply CORS middleware
-app.use(cors(corsOptions));
-
-// Middleware to handle preflight requests
-app.options('*', cors(corsOptions));
+app.options('*', cors());
 
 
 // Middleware
